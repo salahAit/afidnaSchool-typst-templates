@@ -8,15 +8,15 @@
     #set align(center)
     #set text(size: 10pt)
     صفحة #counter(page).display() من #counter(page).final().at(0)
-  ]
+  ],
 )
 
 #set text(
-  font: ("KFGQPC Uthman Taha Naskh", "Amiri", "Noto Naskh Arabic"),
+  font: "KFGQPC Uthman Taha Naskh",
   lang: "ar",
   region: "dz",
   dir: rtl,
-  size: 12pt
+  size: 14pt,
 )
 
 // Global settings for lists and enums
@@ -36,10 +36,7 @@
 // دالة احترافية لرسم العلم الجزائري
 #let algerian_flag() = {
   box(width: 45pt, height: 30pt, stroke: 0.2pt + gray)[
-    #stack(dir: ltr,
-      rect(width: 50%, height: 100%, fill: rgb("#006233")),
-      rect(width: 50%, height: 100%, fill: white)
-    )
+    #stack(dir: ltr, rect(width: 50%, height: 100%, fill: rgb("#006233")), rect(width: 50%, height: 100%, fill: white))
     // الهلال والنجمة باللون الأحمر في المنتصف
     #place(center + horizon, dx: -2pt)[
       #text(fill: red, size: 18pt, font: "DejaVu Sans")[☪]
@@ -50,18 +47,20 @@
 #let header() = {
   v(5pt)
   align(center)[
-    #stack(dir: ltr, spacing: 15pt,
-      algerian_flag(),
+    #stack(
+      dir: ltr,
+      spacing: 15pt,
+      //  algerian_flag(),
       [
         #text(size: 16pt, weight: "bold")[منصة أفدنا للعلوم والتربية] \
-        #text(size: 10pt, weight: "bold")[موافق للمناهج الدراسية لوزارة التربية الوطنية الجزائرية]
+        #text(size: 10pt, weight: "bold")[موافق للمناهج الدراسية الجزائرية]
       ],
-      algerian_flag()
+      //  algerian_flag(),
     )
   ]
-  
+
   v(3pt)
-  
+
   grid(
     columns: (1fr, auto, 1fr),
     column-gutter: 10pt,
@@ -75,9 +74,9 @@
       #set par(leading: 0.6em)
       *دورة: 2023* \
       *المدة: 03 سا و 30 د*
-    ]
+    ],
   )
-  
+
   v(3pt)
   align(center)[
     #line(length: 100%, stroke: 1.2pt)
@@ -123,7 +122,7 @@
   - $A$: "سحب كريتين تحملان رقمين فرديين"
   - $B$: "سحب كريتين تحملان رقمين زوجيين"
   - $C$: "سحب كريتين إحداهما تحمل رقماً فردياً والأخرى تحمل رقماً زوجياً"
-  
+
   #sub-enum[
     + أنجز الشجرة التي تنمذج هذه التجربة.
     + بيّن أنّ $P(A) = 23/60$ و $P(B) = 1/12$ ثمّ احسب $P(C)$.
@@ -131,7 +130,7 @@
 
 + نفرغ محتوى الصندوقين $U_1$ و $U_2$ في صندوق جديد $U_3$ ثمّ نسحب منه عشوائياً كريتين في آن واحد. \
   $X$ المتغيّر العشوائي الذي يرفق بكل عملية سحب لكريتين جُداء الرقمين المسجلين عليهما.
-  
+
   #sub-enum[
     + برّر أن مجموعة قيم المتغيّر العشوائي $X$ هي ${1, 2, 3, 4, 6}$.
     + عيّن قانون الاحتمال للمتغيّر العشوائي $X$ ثمّ احسب أمله الرياضياتي $E(X)$.
@@ -172,7 +171,7 @@ $(u_n)$ المتتالية المعرفة بـ: $u_0 = 1/2$ ومن أجل كل �
   align(right + top)[
     #text(weight: "bold")[I)] $(Gamma)$ التمثيل البياني للدالة $g$ المعرفة على $bb(R)$ بـ: $x |-> (2x - 1)e^(2x) + 1$. \
     و $(D)$ المستقيم ذو المعادلة $y = 1$ ، $alpha$ هي فاصلة نقطة تقاطع $(Gamma)$ و $(D)$ #h(10pt) ( لاحظ الشكل المقابل )
-    
+
     #sub-enum[
       + بقراءة بيانية، حدّد وضعية $(Gamma)$ بالنسبة إلى $(D)$.
       + $g$ الدالة المعرفة على $bb(R)$ بـ : $g(x) = (2x-1)e^(2x) + 1$ \
@@ -181,8 +180,8 @@ $(u_n)$ المتتالية المعرفة بـ: $u_0 = 1/2$ ومن أجل كل �
   ],
   // الجانب الأيسر: الصورة
   align(center + top)[
-    #image("Screenshot from 2026-02-09 23-32-00.png", width: 5cm)
-  ]
+    #image("graph.png", width: 5cm)
+  ],
 )
 
 #text(weight: "bold")[II)] $f$ الدالة المعرفة على $bb(R)$ بـ: $f(x) = (x - 1)(e^(2x) - 1)$. \
